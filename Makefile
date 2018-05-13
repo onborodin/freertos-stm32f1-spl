@@ -54,11 +54,18 @@ SPL_OBJS+= $(SPL_LOC)/misc.o
 
 CMSIS_OBJS+= $(CMSIS_LOC)/system_stm32f10x.o
 
+RTOS_OBJS+= $(RTOS_LOC)/croutine.o
+RTOS_OBJS+= $(RTOS_LOC)/event_groups.o
 RTOS_OBJS+= $(RTOS_LOC)/heap_4.o
 RTOS_OBJS+= $(RTOS_LOC)/list.o
 RTOS_OBJS+= $(RTOS_LOC)/port.o
 RTOS_OBJS+= $(RTOS_LOC)/queue.o
+RTOS_OBJS+= $(RTOS_LOC)/stream_buffer.o
 RTOS_OBJS+= $(RTOS_LOC)/tasks.o
+RTOS_OBJS+= $(RTOS_LOC)/timers.o
+
+
+
 
 MASTER_OBJS+= master.o
 MASTER_OBJS+= startup.o
@@ -102,11 +109,11 @@ master.elf: $(MASTER_OBJS)
 
 clean:
 	rm -f *.i *.o *.elf *.bin *.map *~ *.hex *.d *.s
+	cd $(RTOS_LOC) && rm -f *.o lib*.a
 
 fullclean: clean
 	cd $(SPL_LOC) && rm -f *.o lib*.a
 	cd $(CMSIS_LOC) && rm -f *.o lib*.a
-	cd $(RTOS_LOC) && rm -f *.o lib*.a
 
 
 upload: all master.upl

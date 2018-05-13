@@ -72,7 +72,7 @@ int _read(int file, char *ptr, int len) {
     uint8_t data = 0;
     int i = 0;
     while (i < len) {
-        ptr[i++] = 'z';
+        ptr[i++] = 0;
     }
     return i;
 }
@@ -80,6 +80,7 @@ int _read(int file, char *ptr, int len) {
 
 int _write(int file, char *ptr, int len) {
     int i;
+    // now epmpty
     return 0;
 }
 

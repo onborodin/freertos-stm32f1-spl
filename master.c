@@ -97,7 +97,6 @@ static void hello0_task(void *args __attribute__ ((unused))) {
     }
 }
 
-
 static void usart_task(void *args __attribute__ ((unused))) {
     uint8_t c;
     while(1) {
